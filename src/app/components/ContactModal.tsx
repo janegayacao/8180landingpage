@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
-import { X } from "lucide-react";
-import { useState } from "react";
+import { X, CheckCircle2 } from "lucide-react";
+import { useState, useEffect } from "react";
 import LogoArrowBlue from "@/imports/LogoArrowBlue1";
+import emailjs from "@emailjs/browser";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -16,14 +17,48 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     project: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form and close modal
-    setFormData({ name: "", email: "", company: "", project: "", message: "" });
-    onClose();
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          to_email: import.meta.env.VITE_CONTACT_EMAIL,
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company || "Not provided",
+          message: formData.message,
+          project: formData.project || "Not specified",
+        }
+      );
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", company: "", project: "", message: "" });
+      
+      // Close modal after 2 seconds
+      setTimeout(() => {
+        onClose();
+        setIsSubmitted(false);
+      }, 2000);
+    } catch (err) {
+      setIsSubmitting(false);
+      setError("Failed to send message. Please try again.");
+      console.error("Email error:", err);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -169,19 +204,44 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full bg-transparent border border-white/10 px-4 py-3 rounded-lg focus:outline-none focus:border-[#00AAFF] transition-colors text-white placeholder:text-white/40 resize-none"
+                      disabled={isSubmitting || isSubmitted}
+                      className="w-full bg-transparent border border-white/10 px-4 py-3 rounded-lg focus:outline-none focus:border-[#00AAFF] transition-colors text-white placeholder:text-white/40 resize-none disabled:opacity-50"
                       placeholder="Share your vision, goals, and timeline..."
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-red-400 text-sm" role="alert">{error}</p>
+                  )}
+
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-[#00AAFF] text-white px-8 py-4 border border-[#00AAFF] hover:bg-transparent hover:text-[#00AAFF] transition-all duration-300 text-lg rounded-md"
+                    disabled={isSubmitting || isSubmitted}
+                    className="w-full bg-[#00AAFF] text-white px-8 py-4 border border-[#00AAFF] hover:bg-transparent hover:text-[#00AAFF] transition-all duration-300 text-lg rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     style={{ fontFamily: 'Open Sauce Sans, sans-serif' }}
                   >
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <span>Sending...</span>
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      </>
+                    ) : isSubmitted ? (
+                      <>
+                        <span>Sent!</span>
+                        <CheckCircle2 className="w-4 h-4" />
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
                   </button>
+
+                  {isSubmitted && (
+                    <p className="text-[#00AAFF] text-sm flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4" />
+                      Thanks! We'll be in touch soon.
+                    </p>
+                  )}
                 </form>
               </div>
             </motion.div>
