@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Send, Linkedin, ExternalLink, CheckCircle2, Mail, MessageSquare, User, Building2, Phone, Calendar } from "lucide-react";
 import LogoMasterWhite from "@/imports/LogoMasterWhite1";
 import LogoArrowBlue from "@/imports/LogoArrowBlue1";
-import emailjs from "@emailjs/browser";
 
 export function ContactFooterV2() {
   const [formData, setFormData] = useState({
@@ -18,11 +17,6 @@ export function ContactFooterV2() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-  }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -35,21 +29,9 @@ export function ContactFooterV2() {
     setError("");
     setIsSubmitting(true);
 
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          to_email: import.meta.env.VITE_CONTACT_EMAIL,
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company || "Not provided",
-          phone: formData.phone || "Not provided",
-          message: formData.message,
-          preferredDate: formData.preferredDate || "Not provided",
-        }
-      );
-
+    // Simulate form submission
+    setTimeout(() => {
+      console.log("Form submitted:", formData);
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({
@@ -63,11 +45,7 @@ export function ContactFooterV2() {
       
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err) {
-      setIsSubmitting(false);
-      setError("Failed to send message. Please try again or contact us directly.");
-      console.error("Email error:", err);
-    }
+    }, 1000);
   };
 
   return (

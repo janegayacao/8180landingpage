@@ -1,12 +1,18 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X, CheckCircle2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LogoArrowBlue from "@/imports/LogoArrowBlue1";
-import emailjs from "@emailjs/browser";
 
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  project?: string;
+  message?: string;
 }
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
@@ -17,55 +23,90 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     project: "",
     message: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // Initialize EmailJS
-  useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-  }, []);
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Project type validation
+    if (!formData.project) {
+      newErrors.project = "Please select a project type";
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-    setIsSubmitting(true);
-
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          to_email: import.meta.env.VITE_CONTACT_EMAIL,
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company || "Not provided",
-          message: formData.message,
-          project: formData.project || "Not specified",
-        }
-      );
-
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", company: "", project: "", message: "" });
-      
-      // Close modal after 2 seconds
-      setTimeout(() => {
-        onClose();
-        setIsSubmitted(false);
-      }, 2000);
-    } catch (err) {
-      setIsSubmitting(false);
-      setError("Failed to send message. Please try again.");
-      console.error("Email error:", err);
+    
+    // Validate form
+    if (!validateForm()) {
+      return;
     }
+
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    console.log("Form submitted:", formData);
+    
+    // Show success state
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    
+    // Reset form and close modal after showing success
+    setTimeout(() => {
+      setFormData({ name: "", email: "", company: "", project: "", message: "" });
+      setErrors({});
+      setIsSuccess(false);
+      onClose();
+    }, 2000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+    
+    // Clear error for this field when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors({
+        ...errors,
+        [name]: undefined,
+      });
+    }
   };
 
   return (
@@ -124,10 +165,19 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      required
-                      className="w-full bg-transparent border border-white/10 px-4 py-3 rounded-lg focus:outline-none focus:border-[#00AAFF] transition-colors text-white placeholder:text-white/40"
+                      className={`w-full bg-transparent border ${errors.name ? 'border-red-500' : 'border-white/10'} px-4 py-3 rounded-lg focus:outline-none ${errors.name ? 'focus:border-red-500' : 'focus:border-[#00AAFF]'} transition-colors text-white placeholder:text-white/40`}
                       placeholder="John Doe"
                     />
+                    {errors.name && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-1.5 flex items-center gap-1"
+                      >
+                        <span className="inline-block w-1 h-1 rounded-full bg-red-400"></span>
+                        {errors.name}
+                      </motion.p>
+                    )}
                   </div>
 
                   {/* Email */}
@@ -141,10 +191,19 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required
-                      className="w-full bg-transparent border border-white/10 px-4 py-3 rounded-lg focus:outline-none focus:border-[#00AAFF] transition-colors text-white placeholder:text-white/40"
+                      className={`w-full bg-transparent border ${errors.email ? 'border-red-500' : 'border-white/10'} px-4 py-3 rounded-lg focus:outline-none ${errors.email ? 'focus:border-red-500' : 'focus:border-[#00AAFF]'} transition-colors text-white placeholder:text-white/40`}
                       placeholder="john@company.com"
                     />
+                    {errors.email && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-1.5 flex items-center gap-1"
+                      >
+                        <span className="inline-block w-1 h-1 rounded-full bg-red-400"></span>
+                        {errors.email}
+                      </motion.p>
+                    )}
                   </div>
 
                   {/* Company */}
@@ -173,8 +232,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       name="project"
                       value={formData.project}
                       onChange={handleChange}
-                      required
-                      className="w-full bg-[#121212] border border-white/10 pl-4 py-3 rounded-lg focus:outline-none focus:border-[#00AAFF] transition-colors text-white appearance-none"
+                      className={`w-full bg-[#121212] border ${errors.project ? 'border-red-500' : 'border-white/10'} pl-4 py-3 rounded-lg focus:outline-none ${errors.project ? 'focus:border-red-500' : 'focus:border-[#00AAFF]'} transition-colors text-white appearance-none`}
                       style={{ 
                         paddingRight: '3rem',
                         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
@@ -190,6 +248,16 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       <option value="consulting">Design Consulting</option>
                       <option value="other">Other</option>
                     </select>
+                    {errors.project && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-1.5 flex items-center gap-1"
+                      >
+                        <span className="inline-block w-1 h-1 rounded-full bg-red-400"></span>
+                        {errors.project}
+                      </motion.p>
+                    )}
                   </div>
 
                   {/* Message */}
@@ -202,47 +270,76 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      required
                       rows={4}
-                      disabled={isSubmitting || isSubmitted}
-                      className="w-full bg-transparent border border-white/10 px-4 py-3 rounded-lg focus:outline-none focus:border-[#00AAFF] transition-colors text-white placeholder:text-white/40 resize-none disabled:opacity-50"
+                      className={`w-full bg-transparent border ${errors.message ? 'border-red-500' : 'border-white/10'} px-4 py-3 rounded-lg focus:outline-none ${errors.message ? 'focus:border-red-500' : 'focus:border-[#00AAFF]'} transition-colors text-white placeholder:text-white/40 resize-none`}
                       placeholder="Share your vision, goals, and timeline..."
                     />
+                    {errors.message && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-1.5 flex items-center gap-1"
+                      >
+                        <span className="inline-block w-1 h-1 rounded-full bg-red-400"></span>
+                        {errors.message}
+                      </motion.p>
+                    )}
                   </div>
-
-                  {error && (
-                    <p className="text-red-400 text-sm" role="alert">{error}</p>
-                  )}
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={isSubmitting || isSubmitted}
-                    className="w-full bg-[#00AAFF] text-white px-8 py-4 border border-[#00AAFF] hover:bg-transparent hover:text-[#00AAFF] transition-all duration-300 text-lg rounded-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className={`w-full bg-[#00AAFF] text-white px-8 py-4 border border-[#00AAFF] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-transparent hover:text-[#00AAFF]'} transition-all duration-300 text-lg rounded-md flex items-center justify-center gap-2`}
                     style={{ fontFamily: 'Open Sauce Sans, sans-serif' }}
+                    disabled={isSubmitting}
                   >
-                    {isSubmitting ? (
-                      <>
-                        <span>Sending...</span>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      </>
-                    ) : isSubmitted ? (
-                      <>
-                        <span>Sent!</span>
-                        <CheckCircle2 className="w-4 h-4" />
-                      </>
-                    ) : (
-                      "Send Message"
+                    {isSubmitting && (
+                      <motion.div
+                        className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      />
                     )}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
-
-                  {isSubmitted && (
-                    <p className="text-[#00AAFF] text-sm flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4" />
-                      Thanks! We'll be in touch soon.
-                    </p>
-                  )}
                 </form>
+
+                {/* Success Message */}
+                {isSuccess && (
+                  <motion.div 
+                    className="absolute inset-0 bg-[#121212] flex items-center justify-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    <div className="text-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                      >
+                        <CheckCircle2 className="w-16 h-16 text-[#00AAFF] mx-auto mb-4" />
+                      </motion.div>
+                      <motion.h3 
+                        className="text-2xl md:text-3xl text-white mb-2"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        style={{ fontFamily: 'Agdasima, sans-serif' }}
+                      >
+                        Message Sent Successfully!
+                      </motion.h3>
+                      <motion.p 
+                        className="text-white/60 text-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                        style={{ fontFamily: 'Open Sans, sans-serif' }}
+                      >
+                        We'll be in touch soon.
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                )}
               </div>
             </motion.div>
           </div>
