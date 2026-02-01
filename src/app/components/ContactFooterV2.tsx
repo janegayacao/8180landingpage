@@ -24,7 +24,7 @@ export function ContactFooterV2() {
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    emailjs.init({ publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY });
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -51,7 +51,8 @@ export function ContactFooterV2() {
           phone: formData.phone || "Not provided",
           message: formData.message,
           preferredDate: formData.preferredDate || "Not provided",
-        }
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setIsSubmitting(false);
@@ -67,9 +68,10 @@ export function ContactFooterV2() {
       
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err) {
+    } catch (err: any) {
       setIsSubmitting(false);
-      setError("Failed to send message. Please try again or contact us directly.");
+      const msg = err?.text || err?.message || "Failed to send message. Please try again or contact us directly.";
+      setError(msg);
       console.error("Email error:", err);
     }
   };

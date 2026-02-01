@@ -26,9 +26,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  // Initialize EmailJS
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    // Initialize EmailJS with explicit public key (v4 API)
+    emailjs.init({ publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY });
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +47,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           company: formData.company || "Not provided",
           message: formData.message,
           project: formData.project || "Not specified",
-        }
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setIsSubmitting(false);
@@ -59,9 +60,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         onClose();
         setIsSubmitted(false);
       }, 2000);
-    } catch (err) {
+    } catch (err: any) {
       setIsSubmitting(false);
-      setError("Failed to send message. Please try again.");
+      const msg = err?.text || err?.message || "Failed to send message. Please try again.";
+      setError(msg);
       console.error("Email error:", err);
     }
   };
