@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "motion/react";
 import { Send, Linkedin, ExternalLink, CheckCircle2, Mail, MessageSquare, User, Building2, Phone, Calendar } from "lucide-react";
 import LogoMasterWhite from "@/imports/LogoMasterWhite1";
@@ -10,6 +10,19 @@ const CONTACT_RECIPIENTS = "jane@8180.studio, maya@8180.studio, jess@8180.studio
 
 export function ContactFooterV2() {
   const contactRecipients = import.meta.env.VITE_CONTACT_EMAILS || import.meta.env.VITE_CONTACT_EMAIL || CONTACT_RECIPIENTS;
+
+  const emailConfig = useMemo(
+    () => ({
+      publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined,
+      serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined,
+      templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined,
+    }),
+    []
+  );
+
+  const isEmailConfigured = Boolean(
+    emailConfig.publicKey && emailConfig.serviceId && emailConfig.templateId && contactRecipients
+  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,8 +37,12 @@ export function ContactFooterV2() {
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init({ publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY });
-  }, []);
+    if (isEmailConfigured) {
+      emailjs.init({ publicKey: emailConfig.publicKey! });
+    } else {
+      console.warn("EmailJS environment variables are missing. Contact form disabled.");
+    }
+  }, [emailConfig.publicKey, isEmailConfigured]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -37,12 +54,16 @@ export function ContactFooterV2() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    if (!isEmailConfigured) {
+      setError("Email service is not configured. Please try again later.");
+      return;
+    }
     setIsSubmitting(true);
 
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        emailConfig.serviceId!,
+        emailConfig.templateId!,
         {
           to_email: contactRecipients,
           from_name: formData.name,
@@ -52,7 +73,7 @@ export function ContactFooterV2() {
           message: formData.message,
           preferredDate: formData.preferredDate || "Not provided",
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        emailConfig.publicKey!
       );
 
       setIsSubmitting(false);

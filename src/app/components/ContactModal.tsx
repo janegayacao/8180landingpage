@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { X, CheckCircle2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import LogoArrowBlue from "@/imports/LogoArrowBlue1";
 import emailjs from "@emailjs/browser";
 
@@ -15,6 +15,19 @@ const CONTACT_RECIPIENTS = "jane@8180.studio, maya@8180.studio, jess@8180.studio
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   // Comma-separated list of recipients pulled from env to reach multiple inboxes
   const contactRecipients = import.meta.env.VITE_CONTACT_EMAILS || import.meta.env.VITE_CONTACT_EMAIL || CONTACT_RECIPIENTS;
+
+  const emailConfig = useMemo(
+    () => ({
+      publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined,
+      serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined,
+      templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined,
+    }),
+    []
+  );
+
+  const isEmailConfigured = Boolean(
+    emailConfig.publicKey && emailConfig.serviceId && emailConfig.templateId && contactRecipients
+  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,18 +41,27 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   useEffect(() => {
     // Initialize EmailJS with explicit public key (v4 API)
-    emailjs.init({ publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY });
-  }, []);
+    if (isEmailConfigured) {
+      emailjs.init({ publicKey: emailConfig.publicKey! });
+    } else {
+      console.warn("EmailJS environment variables are missing. Form submission is disabled.");
+    }
+  }, [emailConfig.publicKey, isEmailConfigured]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
+    if (!isEmailConfigured) {
+      setError("Email service is not configured. Please try again later.");
+      return;
+    }
     setIsSubmitting(true);
 
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        emailConfig.serviceId!,
+        emailConfig.templateId!,
         {
           to_email: contactRecipients,
           from_name: formData.name,
@@ -48,7 +70,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           message: formData.message,
           project: formData.project || "Not specified",
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        emailConfig.publicKey!
       );
 
       setIsSubmitting(false);
