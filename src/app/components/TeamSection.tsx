@@ -97,7 +97,7 @@ export function TeamSection() {
 
                 {/* Geometric pattern overlay */}
                 <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                  <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-full h-full" xmlns="https://www.w3.org/2000/svg">
                     <pattern id={`grid-${index}`} width="20" height="20" patternUnits="userSpaceOnUse">
                       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00AAFF" strokeWidth="0.5"/>
                     </pattern>
