@@ -1,6 +1,6 @@
 import svgPaths from "../../imports/svg-yx9r3vp7pb";
 import { motion } from "motion/react";
-import bgImage from "../../assets/b80b977008f9cb503f0e6f9feaabfee2f27ececd.png";
+import bgImage from "../../assets/img_01.png";
 
 export default function Section02() {
   return (

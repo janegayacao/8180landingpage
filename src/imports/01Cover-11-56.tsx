@@ -1,7 +1,7 @@
 import svgPaths from "./svg-763i306kk9";
-import imgWiredOutline1948AztecCalendarHoverPinch1 from "../assets/6fb3826fb4ca273fe394320e7f101ec407940b8c.png";
-import imgWiredOutline1335QrCodeHoverPinch1 from "../assets/653ce160804728fb8f5dbeb299578fb05a2a8869.png";
-import imgWiredOutline471EbookReaderHoverPinch1 from "../assets/ed4a71c88d1a0997f9c2fd520de7c57460e8f469.png";
+import imgWiredOutline1948AztecCalendarHoverPinch1 from "../assets/img_20.png";
+import imgWiredOutline1335QrCodeHoverPinch1 from "../assets/img_19.png";
+import imgWiredOutline471EbookReaderHoverPinch1 from "../assets/img_21.png";
 
 function Frame() {
   return (

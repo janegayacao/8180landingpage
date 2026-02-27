@@ -1,6 +1,6 @@
 import svgPathsBlueTriangle from "../../imports/svg-sls13oas0q";
 import { motion } from "motion/react";
-import bgImage from "../../assets/7d8acfc51cf810b397fe41b7ecd0930cdfeed3ed.png";
+import bgImage from "../../assets/img_04.png";
 import Section6Graphic from "../../imports/Section6";
 
 export default function Section06() {
