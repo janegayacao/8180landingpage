@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from 'motion/react';
 import svgPaths from "../../imports/svg-sls13oas0q";
-import imgIcon1 from "figma:asset/51ec98fbeb316106fb773ab8aaee47ee13e542e3.png";
-import imgIcon2 from "figma:asset/c1d83268fafb4175a3e24c84f58629b616274c5b.png";
-import imgIcon3 from "figma:asset/0826be63dd13e18a191bf6f4da8795d78712350a.png";
+import imgIcon1 from "../../assets/51ec98fbeb316106fb773ab8aaee47ee13e542e3.png";
+import imgIcon2 from "../../assets/c1d83268fafb4175a3e24c84f58629b616274c5b.png";
+import imgIcon3 from "../../assets/0826be63dd13e18a191bf6f4da8795d78712350a.png";
 
 interface Service {
   icon: string;

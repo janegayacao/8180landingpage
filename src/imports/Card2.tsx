@@ -1,4 +1,4 @@
-import imgGeminiGeneratedImageGebg1Ggebg1Ggebg1 from "figma:asset/a9fecce1d08fdc109ae174413cc8b79a35d2ec83.png";
+import imgGeminiGeneratedImageGebg1Ggebg1Ggebg1 from "../assets/a9fecce1d08fdc109ae174413cc8b79a35d2ec83.png";
 
 function Frame1() {
   return (

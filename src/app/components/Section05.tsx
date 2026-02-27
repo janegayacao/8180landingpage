@@ -1,16 +1,16 @@
 import svgPaths from "../../imports/svg-yx9r3vp7pb";
 import svgPathsBlueTriangle from "../../imports/svg-sls13oas0q";
 import { motion } from "motion/react";
-import bgImage from "figma:asset/7d8acfc51cf810b397fe41b7ecd0930cdfeed3ed.png";
+import bgImage from "../../assets/7d8acfc51cf810b397fe41b7ecd0930cdfeed3ed.png";
 import Card1 from "../../imports/Card1";
 import Card2 from "../../imports/Card2";
 import CardModal, { serviceIcons } from "./CardModal";
 import { useState } from "react";
-import imgCard1Bg from "figma:asset/d400fdb2a70b77b3e0a866a7f23c503219eaffb1.png";
-import imgCard2Bg from "figma:asset/a9fecce1d08fdc109ae174413cc8b79a35d2ec83.png";
-import imgBrandIdentityIcon from "figma:asset/374c4b5750e0941c7616a45cc0d41f6a9fa52b76.png";
-import imgOnlinePlatformsIcon from "figma:asset/03c880b326a4500226e261b0be62f4311ec180c1.png";
-import imgWebApplicationsIcon from "figma:asset/b3d2d6fb8513f4170ba9e64c42276709202ee759.png";
+import imgCard1Bg from "../../assets/d400fdb2a70b77b3e0a866a7f23c503219eaffb1.png";
+import imgCard2Bg from "../../assets/a9fecce1d08fdc109ae174413cc8b79a35d2ec83.png";
+import imgBrandIdentityIcon from "../../assets/374c4b5750e0941c7616a45cc0d41f6a9fa52b76.png";
+import imgOnlinePlatformsIcon from "../../assets/03c880b326a4500226e261b0be62f4311ec180c1.png";
+import imgWebApplicationsIcon from "../../assets/b3d2d6fb8513f4170ba9e64c42276709202ee759.png";
 
 export default function Section05() {
   const [selectedCard, setSelectedCard] = useState<'card1' | 'card2' | null>(null);

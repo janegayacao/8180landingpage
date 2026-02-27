@@ -1,17 +1,17 @@
 import svgPaths from "./svg-yx9r3vp7pb";
-import img1 from "figma:asset/68c8afef4b981d2bb93c294945dc9618ef02d8db.png";
-import img2 from "figma:asset/62aff417ced7a56aae2bbd27723dec353f8d1456.png";
-import img3 from "figma:asset/cc16cd5f447f491e0ef13d470c9368a51176b63f.png";
-import img4 from "figma:asset/235c4ac7f3f921b534186d3c4bac15da85960d1a.png";
-import img5 from "figma:asset/4bc1dd60c35aea2b18be4b339a9d8bf431958e8f.png";
-import img6 from "figma:asset/0923bd9a0442d945904dff7d13ea19aeb647775b.png";
+import img1 from "../assets/68c8afef4b981d2bb93c294945dc9618ef02d8db.png";
+import img2 from "../assets/62aff417ced7a56aae2bbd27723dec353f8d1456.png";
+import img3 from "../assets/cc16cd5f447f491e0ef13d470c9368a51176b63f.png";
+import img4 from "../assets/235c4ac7f3f921b534186d3c4bac15da85960d1a.png";
+import img5 from "../assets/4bc1dd60c35aea2b18be4b339a9d8bf431958e8f.png";
+import img6 from "../assets/0923bd9a0442d945904dff7d13ea19aeb647775b.png";
 // Mobile-specific images
-import mobileImg1 from "figma:asset/da9a88b258a3f0db86c4cbca852e3efe137371e7.png";
-import mobileImg2 from "figma:asset/9b75d61e75ef28b34e051c5693bf8676609661d0.png";
-import mobileImg3 from "figma:asset/8a26460070f7c8102e96bc4341c69d7c6771a9ae.png";
-import mobileImg4 from "figma:asset/31309631e9ed40d1b2fbc841f5d93cda122cad94.png";
-import mobileImg5 from "figma:asset/d34f0cca7b7853bdf9054113f65762f2414c734e.png";
-import mobileImg6 from "figma:asset/f7c764e97a34a96c5c5d3b6ca1b773ab7ff71ef3.png";
+import mobileImg1 from "../assets/da9a88b258a3f0db86c4cbca852e3efe137371e7.png";
+import mobileImg2 from "../assets/9b75d61e75ef28b34e051c5693bf8676609661d0.png";
+import mobileImg3 from "../assets/8a26460070f7c8102e96bc4341c69d7c6771a9ae.png";
+import mobileImg4 from "../assets/31309631e9ed40d1b2fbc841f5d93cda122cad94.png";
+import mobileImg5 from "../assets/d34f0cca7b7853bdf9054113f65762f2414c734e.png";
+import mobileImg6 from "../assets/f7c764e97a34a96c5c5d3b6ca1b773ab7ff71ef3.png";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 
