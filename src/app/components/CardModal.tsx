@@ -121,12 +121,12 @@ export default function CardModal({ isOpen, onClose, title, description, backgro
               </div>
 
               {/* Title */}
-              <h2 className="font-['Agdasima:Regular',sans-serif] leading-[0.76] not-italic text-[28px] md:text-[46px] text-white tracking-[-0.56px] md:tracking-[-0.92px] mb-[10px] md:mb-[15px] whitespace-pre-wrap">
+              <h2 className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-[28px] md:text-[46px] text-white tracking-[-0.56px] md:tracking-[-0.92px] mb-[10px] md:mb-[15px] whitespace-pre-wrap">
                 {title}
               </h2>
 
               {/* Description */}
-              <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-[1.2] not-italic text-[9px] md:text-[16px] text-white tracking-[-0.18px] md:tracking-[-0.32px] mb-[70px] md:mb-[90px] max-w-[300px] md:max-w-[400px]">
+              <p className="font-['Open Sauce One',sans-serif] leading-[1.2] not-italic text-[9px] md:text-[16px] text-white tracking-[-0.18px] md:tracking-[-0.32px] mb-[70px] md:mb-[90px] max-w-[300px] md:max-w-[400px]">
                 {description}
               </p>
 
@@ -144,12 +144,12 @@ export default function CardModal({ isOpen, onClose, title, description, backgro
                     </div>
                     
                     {/* Title */}
-                    <h3 className="font-['Agdasima:Regular',sans-serif] leading-[0.76] not-italic md:text-[46.728px] text-white tracking-[-0.72px] md:tracking-[-0.9346px] whitespace-pre-wrap text-[32px]">
+                    <h3 className="font-['Agdasima',sans-serif] leading-[0.76] not-italic md:text-[46.728px] text-white tracking-[-0.72px] md:tracking-[-0.9346px] whitespace-pre-wrap text-[32px]">
                       {service.title}
                     </h3>
                     
                     {/* Description */}
-                    <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-[1.2] not-italic md:text-[18.691px] text-white tracking-[-0.28px] md:tracking-[-0.3738px] text-[14px]">
+                    <p className="font-['Open Sauce One',sans-serif] leading-[1.2] not-italic md:text-[18.691px] text-white tracking-[-0.28px] md:tracking-[-0.3738px] text-[14px]">
                       {service.description}
                     </p>
                   </div>

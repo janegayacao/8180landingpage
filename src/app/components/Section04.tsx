@@ -28,10 +28,10 @@ export default function Section04() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
           <p className="mb-0 text-[80px]">Our Solution</p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
           We design smart products, tools,<br />and workflows for better output, efficiency,<br />and effectivity, guided by the user experience.
         </p>
       </motion.div>
@@ -50,10 +50,10 @@ export default function Section04() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
           <p className="mb-0 text-[58px]">Our Solution</p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
           We design smart products, tools,<br />
           and workflows for better output,<br />
           efficiency, and effectivity,<br />

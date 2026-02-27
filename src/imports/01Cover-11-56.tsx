@@ -45,12 +45,12 @@ function Frame1() {
       <div className="relative shrink-0 size-[180px]" data-name="wired-outline-1948-aztec-calendar-hover-pinch 1">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgWiredOutline1948AztecCalendarHoverPinch1} />
       </div>
-      <p className="font-['Agdasima:Regular',sans-serif] h-[70px] leading-[0.76] not-italic relative shrink-0 text-[46.728px] text-white tracking-[-0.9346px] w-full whitespace-pre-wrap">
+      <p className="font-['Agdasima',sans-serif] h-[70px] leading-[0.76] not-italic relative shrink-0 text-[46.728px] text-white tracking-[-0.9346px] w-full whitespace-pre-wrap">
         {`Brand Identity `}
         <br aria-hidden="true" />
         {`Direction & Strategy`}
       </p>
-      <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-[1.2] min-w-full not-italic relative shrink-0 text-[18.691px] text-white tracking-[-0.3738px] w-[min-content] whitespace-pre-wrap">Designing a cohesive brand direction for your entire organization. We create the strategy for effective brand communication and ensure seamless implementation across all products, media, and content.</p>
+      <p className="font-['Open Sauce One',sans-serif] leading-[1.2] min-w-full not-italic relative shrink-0 text-[18.691px] text-white tracking-[-0.3738px] w-[min-content] whitespace-pre-wrap">Designing a cohesive brand direction for your entire organization. We create the strategy for effective brand communication and ensure seamless implementation across all products, media, and content.</p>
     </div>
   );
 }
@@ -61,12 +61,12 @@ function Frame2() {
       <div className="relative shrink-0 size-[170px]" data-name="wired-outline-1335-qr-code-hover-pinch 1">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgWiredOutline1335QrCodeHoverPinch1} />
       </div>
-      <p className="font-['Agdasima:Regular',sans-serif] h-[70px] leading-[0.76] not-italic relative shrink-0 text-[46.728px] text-white tracking-[-0.9346px] w-full whitespace-pre-wrap">
+      <p className="font-['Agdasima',sans-serif] h-[70px] leading-[0.76] not-italic relative shrink-0 text-[46.728px] text-white tracking-[-0.9346px] w-full whitespace-pre-wrap">
         Online
         <br aria-hidden="true" />
         Platforms
       </p>
-      <p className="font-['Open_Sauce_Sans:Regular',sans-serif] h-[80px] leading-[1.2] not-italic relative shrink-0 text-[18.691px] text-white tracking-[-0.3738px] w-full whitespace-pre-wrap">
+      <p className="font-['Open Sauce One',sans-serif] h-[80px] leading-[1.2] not-italic relative shrink-0 text-[18.691px] text-white tracking-[-0.3738px] w-full whitespace-pre-wrap">
         Visually engaging brand and corporate
         <br aria-hidden="true" />
         {`online platforms interactively designed `}
@@ -83,12 +83,12 @@ function Frame3() {
       <div className="relative shrink-0 size-[170px]" data-name="wired-outline-471-ebook-reader-hover-pinch 1">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgWiredOutline471EbookReaderHoverPinch1} />
       </div>
-      <p className="font-['Agdasima:Regular',sans-serif] h-[70px] leading-[0.76] not-italic relative shrink-0 text-[46.728px] text-white tracking-[-0.9346px] w-full whitespace-pre-wrap">
+      <p className="font-['Agdasima',sans-serif] h-[70px] leading-[0.76] not-italic relative shrink-0 text-[46.728px] text-white tracking-[-0.9346px] w-full whitespace-pre-wrap">
         Web
         <br aria-hidden="true" />
         Applications
       </p>
-      <p className="font-['Open_Sauce_Sans:Regular',sans-serif] h-[80px] leading-[1.2] not-italic relative shrink-0 text-[18.691px] text-white tracking-[-0.3738px] w-full whitespace-pre-wrap">
+      <p className="font-['Open Sauce One',sans-serif] h-[80px] leading-[1.2] not-italic relative shrink-0 text-[18.691px] text-white tracking-[-0.3738px] w-full whitespace-pre-wrap">
         {`End-to-end design and development for all your `}
         <br aria-hidden="true" />
         business needs, regardless of your model.
@@ -137,11 +137,11 @@ export default function Component01Cover() {
           </svg>
         </div>
       </div>
-      <div className="absolute font-['Agdasima:Regular',sans-serif] leading-[0.76] left-[116px] not-italic text-[92px] text-white top-[166px] tracking-[-1.84px] whitespace-nowrap">
+      <div className="absolute font-['Agdasima',sans-serif] leading-[0.76] left-[116px] not-italic text-[92px] text-white top-[166px] tracking-[-1.84px] whitespace-nowrap">
         <p className="mb-0">Digital</p>
         <p>Transformation</p>
       </div>
-      <p className="absolute bottom-[760px] font-['Open_Sauce_Sans:Regular',sans-serif] leading-[1.2] left-[calc(50%-841px)] not-italic text-[32px] text-white tracking-[-0.64px] translate-y-full">
+      <p className="absolute bottom-[760px] font-['Open Sauce One',sans-serif] leading-[1.2] left-[calc(50%-841px)] not-italic text-[32px] text-white tracking-[-0.64px] translate-y-full">
         {`User-centric digital experience `}
         <br aria-hidden="true" />
         {`that ensures consistency `}

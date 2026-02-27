@@ -42,13 +42,13 @@ export default function Section06() {
               </svg>
             </div>
           </div>
-          <div className="font-['Agdasima:Regular',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
+          <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
             <p className="mb-0 text-[80px]">Work with Us</p>
           </div>
-          <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
+          <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
             Business, Brands, and Collaborations.
           </p>
-          <div className="font-['Agdasima:Regular',sans-serif] leading-[1.2] mt-[104px] not-italic text-[#0062FF] tracking-[-1.24px]">
+          <div className="font-['Agdasima',sans-serif] leading-[1.2] mt-[104px] not-italic text-[#0062FF] tracking-[-1.24px]">
             <p className="mb-0 text-[72px]">
               <a href="mailto:info@8180.studio" className="hover:opacity-80 transition-opacity">
                 info@8180.studio
@@ -83,13 +83,13 @@ export default function Section06() {
               </svg>
             </div>
           </div>
-          <div className="font-['Agdasima:Regular',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
+          <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
             <p className="mb-0 text-[58px]">Work with Us</p>
           </div>
-          <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
+          <p className="font-['Open Sauce One',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
             Business, Brands, and Collaborations.
           </p>
-          <div className="font-['Agdasima:Regular',sans-serif] leading-[1.2] mt-[104px] not-italic text-[#0062FF] tracking-[-1.24px]">
+          <div className="font-['Agdasima',sans-serif] leading-[1.2] mt-[104px] not-italic text-[#0062FF] tracking-[-1.24px]">
             <p className="mb-0 text-[44px]">
               <a href="mailto:info@8180.studio" className="hover:opacity-80 transition-opacity">
                 info@8180.studio

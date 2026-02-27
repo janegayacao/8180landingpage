@@ -28,10 +28,10 @@ export default function Section02() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
           <p className="mb-0 text-[80px]">We are Designers</p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px]">
           we just want to be productive
         </p>
       </motion.div>
@@ -50,10 +50,10 @@ export default function Section02() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
           <p className="mb-0 text-[58px]">We are<br />Designers</p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px]">
           we just want<br />to be productive
         </p>
       </motion.div>

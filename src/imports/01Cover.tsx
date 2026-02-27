@@ -88,11 +88,11 @@ function MainContent() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
           <p className="mb-0 text-[80px]">Human Productivity</p>
           <p className="text-[80px]">through Better Design</p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[32px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[32px]">
           The 8180 Studio Principles.
         </p>
       </motion.div>
@@ -111,7 +111,7 @@ function MainContent() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.77] not-italic text-white tracking-[-1px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1px]">
           <p className="mb-0 text-[54px]">
             Human
             <br />
@@ -122,7 +122,7 @@ function MainContent() {
             Better Design
           </p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[16px] not-italic text-white tracking-[-0.48px] text-[18px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[16px] not-italic text-white tracking-[-0.48px] text-[18px]">
           The 8180 Studio Principles.
         </p>
       </motion.div>

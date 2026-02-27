@@ -94,7 +94,7 @@ export default function Lockup8180({ onHireUsClick, onCornerIconClick }: { onHir
       {/* Right side copyright text */}
       <div className="absolute flex h-[330px] items-start md:items-center justify-center right-[25px] top-[220px] md:top-[calc(50%-165px)] translate-x-1/2 w-[8px] pointer-events-none" style={{ "--transform-inner-width": "1200", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="-rotate-90 flex-none">
-          <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-[0.76] not-italic relative text-[8px] md:text-[10px] text-center text-white tracking-[3px]">2026 8180.Studio™ | ALL RIGHTS RESERVED</p>
+          <p className="font-['Open Sauce One',sans-serif] leading-[0.76] not-italic relative text-[8px] md:text-[10px] text-center text-white tracking-[3px]">2026 8180.Studio™ | ALL RIGHTS RESERVED</p>
         </div>
       </div>
 
@@ -105,7 +105,7 @@ export default function Lockup8180({ onHireUsClick, onCornerIconClick }: { onHir
         style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\\\'0 0 78 36\\\\' xmlns=\\\\'http://www.w3.org/2000/svg\\\\' preserveAspectRatio=\\\\'none\\\\'><rect x=\\\\'0\\\\' y=\\\\'0\\\\' height=\\\\'100%\\\\' width=\\\\'100%\\\\' fill=\\\\'url(%23grad)\\\\' opacity=\\\\'0.5\\\\'/><defs><radialGradient id=\\\\'grad\\\\' gradientUnits=\\\\'userSpaceOnUse\\\\' cx=\\\\'0\\\\' cy=\\\\'0\\\\' r=\\\\'10\\\\' gradientTransform=\\\\'matrix(3.9 0 0 1.8 39 18)\\\\'><stop stop-color=\\\\'rgba(0,0,0,0.1)\\\\' offset=\\\\'0\\\\'/><stop stop-color=\\\\'rgba(0,0,0,0.5)\\\\' offset=\\\\'1\\\\'/></radialGradient></defs></svg>')" }}
       >
         <div aria-hidden="true" className="absolute border border-solid border-white inset-0 pointer-events-none rounded-[20px]" />
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none not-italic relative shrink-0 text-[14px] md:text-[16px] text-white tracking-[-0.32px]">Hire Us</p>
+        <p className="font-['Open Sauce One',sans-serif] leading-none not-italic relative shrink-0 text-[14px] md:text-[16px] text-white tracking-[-0.32px]">Hire Us</p>
       </div>
     </div>
   );

@@ -28,10 +28,10 @@ export default function Section03() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
           <p className="mb-0 text-[80px]">Progress is Human-Centric</p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
           AI and automation offer incredible efficiency,<br />true progress requires keeping humanity<br />as the center of design and technology<br />to turn basic outputs into great operations.
         </p>
       </motion.div>
@@ -50,10 +50,10 @@ export default function Section03() {
             </svg>
           </div>
         </div>
-        <div className="font-['Agdasima:Regular',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
+        <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
           <p className="mb-0 text-[58px]">Progress is<br />Human-Centric</p>
         </div>
-        <p className="font-['Open_Sauce_Sans:Regular',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
+        <p className="font-['Open Sauce One',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
           AI and automation offer incredible<br />
           efficiency, true progress requires<br />
           keeping humanity as the center<br />
