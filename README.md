@@ -1,7 +1,7 @@
 
-  # 8180
+  # 8180-v2
 
-  This is a code bundle for 8180. The original project is available at https://www.figma.com/design/vYwA7ofMWm9K9RBRvcBw2U/8180.
+  This is a code bundle for 8180-v2. The original project is available at https://www.figma.com/design/s9jzzYbRbwOJsvBaC67IIr/8180-v2.
 
   ## Running the code
 
