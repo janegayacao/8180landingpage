@@ -83,10 +83,10 @@ export default function Lockup8180({ onHireUsClick, onCornerIconClick }: { onHir
       </div>
 
       {/* Left vertical strokes */}
-      <div className="-translate-y-1/2 absolute left-[26px] md:left-[28px] top-[calc(50%+14px)] w-0 pointer-events-none h-[calc(100dvh-160px)] md:h-[calc(100dvh-200px)]">
+      <div className="-translate-y-1/2 absolute left-[26px] md:left-[28px] top-[calc(50%+14px)] w-px pointer-events-none h-[calc(100dvh-160px)] md:h-[calc(100dvh-200px)]">
         <div className="absolute inset-[0_-0.25px]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 0.5 100">
-            <path d="M0.25 0V100" id="Vector 1" stroke="var(--stroke-0, white)" strokeWidth="0.5" />
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1 100">
+            <path d="M0.5 0V100" id="Vector 1" stroke="var(--stroke-0, white)" strokeWidth="1" />
           </svg>
         </div>
       </div>
