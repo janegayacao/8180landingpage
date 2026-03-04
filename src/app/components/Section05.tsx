@@ -11,9 +11,11 @@ import imgCard2Bg from "../../assets/img_06.png";
 import imgBrandIdentityIcon from "../../assets/icon_animate_04.png";
 import imgOnlinePlatformsIcon from "../../assets/icon_animate_05.png";
 import imgWebApplicationsIcon from "../../assets/icon_animate_06.png";
+import ScrambleText from "./ScrambleText";
 
 export default function Section05() {
   const [selectedCard, setSelectedCard] = useState<'card1' | 'card2' | null>(null);
+  const [showSubhead, setShowSubhead] = useState(false);
 
   const card1ModalData = {
     title: "Digital\nTransformation",
@@ -93,7 +95,13 @@ export default function Section05() {
             </div>
           </div>
           <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
-            <p className="mb-0 text-[80px]">Our Services</p>
+            <p className="mb-0 text-[80px]">
+              <ScrambleText 
+                text="Our Services" 
+                delay={400}
+                duration={2000}
+              />
+            </p>
           </div>
           <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
             We provide user-centric design,<br />build, and integration.
@@ -137,7 +145,13 @@ export default function Section05() {
             </div>
           </div>
           <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
-            <p className="mb-0 text-[58px]">Our Services</p>
+            <p className="mb-0 text-[58px]">
+              <ScrambleText 
+                text="Our Services" 
+                delay={400}
+                duration={2000}
+              />
+            </p>
           </div>
           <p className="font-['Open Sauce One',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
             We provide user-centric design,<br />build, and integration.

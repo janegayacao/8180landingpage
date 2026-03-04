@@ -1,6 +1,7 @@
 import svgPaths from "../../imports/svg-yx9r3vp7pb";
 import { motion } from "motion/react";
 import bgImage from "../../assets/img_02.png";
+import ScrambleText from "./ScrambleText";
 
 export default function Section03() {
   return (
@@ -29,7 +30,13 @@ export default function Section03() {
           </div>
         </div>
         <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
-          <p className="mb-0 text-[80px]">Progress is Human-Centric</p>
+          <p className="mb-0 text-[80px]">
+            <ScrambleText 
+              text="Progress is Human-Centric" 
+              delay={400}
+              duration={2000}
+            />
+          </p>
         </div>
         <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px] max-w-[800px]">
           AI and automation offer incredible efficiency,<br />true progress requires keeping humanity<br />as the center of design and technology<br />to turn basic outputs into great operations.
@@ -51,7 +58,13 @@ export default function Section03() {
           </div>
         </div>
         <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
-          <p className="mb-0 text-[58px]">Progress is<br />Human-Centric</p>
+          <p className="mb-0 text-[58px]">
+            <ScrambleText 
+              text="Progress is Human-Centric" 
+              delay={400}
+              duration={2000}
+            />
+          </p>
         </div>
         <p className="font-['Open Sauce One',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px] max-w-[280px]">
           AI and automation offer incredible<br />

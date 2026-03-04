@@ -14,6 +14,7 @@ import mobileImg5 from "../assets/img_17.png";
 import mobileImg6 from "../assets/img_18.png";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
+import ScrambleText from "../app/components/ScrambleText";
 
 function KenBurnsSlideshow() {
   // Desktop images (current images)
@@ -89,8 +90,20 @@ function MainContent() {
           </div>
         </div>
         <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
-          <p className="mb-0 text-[80px]">Human Productivity</p>
-          <p className="text-[80px]">through Better Design</p>
+          <p className="mb-0 text-[80px]">
+            <ScrambleText 
+              text="Human Productivity" 
+              delay={600}
+              duration={2000}
+            />
+          </p>
+          <p className="text-[80px]">
+            <ScrambleText 
+              text="through Better Design" 
+              delay={600}
+              duration={2000}
+            />
+          </p>
         </div>
         <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[32px]">
           The 8180 Studio Principles.
@@ -113,13 +126,32 @@ function MainContent() {
         </div>
         <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1px]">
           <p className="mb-0 text-[54px]">
-            Human
+            <ScrambleText 
+              text="Human" 
+              delay={600}
+              duration={2000}
+            />
+            {" "}
             <br />
-            Productivity
+            <ScrambleText 
+              text="Productivity" 
+              delay={600}
+              duration={2000}
+            />
             <br />
-            <span className="inline-block -mt-[3px]">through</span>
+            <span className="inline-block -mt-[3px]">
+              <ScrambleText 
+                text="through" 
+                delay={600}
+                duration={2000}
+              />
+            </span>
             <br />
-            Better Design
+            <ScrambleText 
+              text="Better Design" 
+              delay={600}
+              duration={2000}
+            />
           </p>
         </div>
         <p className="font-['Open Sauce One',sans-serif] leading-none mt-[16px] not-italic text-white tracking-[-0.48px] text-[18px]">

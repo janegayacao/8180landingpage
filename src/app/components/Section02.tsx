@@ -1,6 +1,7 @@
 import svgPaths from "../../imports/svg-yx9r3vp7pb";
 import { motion } from "motion/react";
 import bgImage from "../../assets/img_01.png";
+import ScrambleText from "./ScrambleText";
 
 export default function Section02() {
   return (
@@ -29,7 +30,13 @@ export default function Section02() {
           </div>
         </div>
         <div className="font-['Agdasima',sans-serif] leading-[0.76] not-italic text-white tracking-[-2px]">
-          <p className="mb-0 text-[80px]">We are Designers</p>
+          <p className="mb-0 text-[80px]">
+            <ScrambleText 
+              text="We are Designers" 
+              delay={400}
+              duration={2000}
+            />
+          </p>
         </div>
         <p className="font-['Open Sauce One',sans-serif] leading-none mt-[20px] not-italic text-white tracking-[-0.64px] text-[27px]">
           we just want to be productive
@@ -51,7 +58,13 @@ export default function Section02() {
           </div>
         </div>
         <div className="font-['Agdasima',sans-serif] leading-[0.77] not-italic text-white tracking-[-1.24px]">
-          <p className="mb-0 text-[58px]">We are<br />Designers</p>
+          <p className="mb-0 text-[58px]">
+            <ScrambleText 
+              text="We are Designers" 
+              delay={400}
+              duration={2000}
+            />
+          </p>
         </div>
         <p className="font-['Open Sauce One',sans-serif] leading-none mt-[12px] not-italic text-white tracking-[-0.64px] text-[15px]">
           we just want<br />to be productive
